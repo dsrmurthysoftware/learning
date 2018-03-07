@@ -1,0 +1,25 @@
+<div class="well">  
+  <div *ngIf="status; then show else warn"></div>
+
+  <ng-template #show>
+    <h1 class="bg-danger"> Contact List </h1>
+    <h2 class='text-danger'>Select any contact</h2>
+       
+    <div *ngFor="let contact of contacts" 
+        (click) = "selectedContact(contact)">    
+        <a style="margin:10px" href="#" >
+          <h4 class='bg-info'>{{contact.name}}</h4>
+        </a>
+     </div>
+
+    <div style="background-color:yellow" class='well'>
+        <contact-details [contact] ="selected"></contact-details>
+    </div>
+  </ng-template>
+
+  <ng-template #warn>
+      <h1 class="container text-danger text-center">
+          Sorry.. Can not fetch Contacts........
+      </h1>
+  </ng-template>
+</div>

@@ -1,0 +1,36 @@
+<h2 class="text-danger">Form binding with FormBuilder </h2>
+    <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+      <table border="1" style="margin:20px">
+      <tr>
+      <td>Username: 
+      <input type="text" formControlName="username"></td>
+      </tr>
+      <tr>
+      <td>SSN Code:
+      <input type="text" formControlName="ssn"></td>
+      </tr>
+      <tr>
+      <div formGroupName="passwordsGroup">
+        <td>Password: 
+        <input type="password"  formControlName="password"></td>
+        <tr>
+        <td>Confirm : &nbsp;&nbsp; 
+        <input type="password" formControlName="pconfirm"></td>
+        </tr>
+      </div>
+      </tr>
+      <tr>      
+        <td>
+      <button type="submit" 
+        class='btn-primary'>Submit</button>
+        <button type="reset" 
+        class='btn-success'>Reset</button>
+        </td>
+      </tr>
+      <tr *ngIf="username">
+       <td class='bg-danger'>
+       SSN : {{ssn}}  -   User name : {{username}}</td>
+      </tr>
+      </table>
+    </form>
+    

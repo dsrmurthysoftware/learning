@@ -1,0 +1,39 @@
+
+        <div class="container" >
+            <div class="title">
+                Login Form
+            </div>
+    <div class="well">
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.username" id="username" 
+                type="text" placeholder="Enter username" class="validate" >
+                <label for="username">User Name</label>
+            </div>
+        </div>
+ 
+    <div class="row">
+        <div class="input-field col s12">
+            <input [(ngModel)]="user.password" id="password" 
+                type="password" placeholder="Enter password" class="validate">
+                    <label for="password">Password</label>
+        </div>
+    </div>
+
+    <p *ngIf="status; then show else warn"></p>
+    
+    <ng-template #warn>
+        <h3 class="well text-danger bg-info">{{errorMsg}}</h3>
+        <br/>
+    </ng-template>
+    
+    <ng-template #show>
+        <h3>Loading......</h3>
+    </ng-template>
+
+        <button (click)="login()" 
+            class="btn btn-primary" 
+            type="submit" name="action">Login
+        </button>
+    </div>
+</div>

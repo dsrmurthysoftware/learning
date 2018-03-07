@@ -1,0 +1,28 @@
+<p class="text-danger text-center" 
+  *ngIf="authenticated; then  greet "></p>
+  
+  <ng-template #greet>
+      <h4>
+          Welcome to Our Dashboard  Mr.  <b>{{name}}</b>
+      </h4>
+  </ng-template>
+<br/>
+
+Contacts List:
+      <table border='3'>
+        <div *ngFor="let contact of contacts" 
+             (click)="selectedContact(contact)" >
+      <tr>
+        <td> 
+        <a href="#" [routerLink]="['/show', contact.name]">
+          {{contact.name}}
+        </a>   &nbsp; &nbsp; &nbsp;
+        </td>
+            <td>  {{contact.email}} </td>  &nbsp; &nbsp; &nbsp;
+            <td>  {{contact.phone}} </td>
+     </tr>     
+     </div>
+  </table>
+  
+
+  

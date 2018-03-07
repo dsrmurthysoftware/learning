@@ -1,0 +1,28 @@
+<form class="container form-control" 
+  #formData="ngForm"
+  (ngSubmit)="onSubmit(formData.value)">
+User Name:   <input type="text" name="username"  ngModel>
+<br>
+Password : &nbsp;<input type="password"  name="password" ngModel>
+<br/>
+Country: <select name="country" ngModel placeholder="Select">
+  <option value="India">India</option>
+  <option value="USA">USA</option>
+  <option value="Japan">Japan</option>
+</select>
+<br><br>
+<input type="submit" value="Login" class="btn btn-success">
+<input type="reset" value="Reset" class="btn btn-danger">
+</form>
+
+<div class="well">
+  <span *ngIf="status; then show else error"></span>
+  <ng-template #show >
+    <h4 class="text-success">{{message}}</h4>
+  </ng-template>
+
+  <ng-template #error >
+    <h4 class="text-danger">{{message}}</h4>
+  </ng-template>
+</div>
+

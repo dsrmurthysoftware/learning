@@ -1,0 +1,12 @@
+<div class="main">
+  <h1>Skills List</h1>
+  <div class="Add Your Skill">
+      <input placeholder="Add your skill" class="addText" [(ngModel)]="newItem"/>
+      <button (click)="AddItem()"> Add </button>
+      <ul>
+        <li *ngFor="let i of items; let ind=index">
+         {{i}}
+          <span class="text-danger" (click)="RemoveItem(ind)">X</span>
+        </li>
+        </ul>
+  </div>

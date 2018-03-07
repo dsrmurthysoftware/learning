@@ -1,0 +1,21 @@
+ <div style='background-color:orange'>
+   <h3>New Contact </h3>
+     <div>
+     	<label for="name">Name </label>
+      	<input type="text" id="name" #cname>
+     </div>
+
+      <div>
+     	<label for="email">Email ID </label>
+      	<input type="email" id="mail" #mail >
+      </div>
+
+   	<div>
+   		<label for="phone" >Phone</label>
+         <input type="text" id='phone' #ph >  
+      </div>
+
+      <input type="submit" value="Add new Contact" 
+        (click)="onInsert(cname.value,mail.value,ph.value)"
+         class="btn-primary">
+</div>

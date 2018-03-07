@@ -1,0 +1,86 @@
+ATB = Angular Test Bed
+
+The Angular Test Bed (ATB) is a higher level Angular Only testing framework that allows us to easily test behaviours that depend on the Angular Framework.
+
+Why ATB
+=======
+•	It allows us to test the interaction of a directive or component with it’s template.
+•	It allows us to easily test change detection.
+•	It allows us to test and use Angulars DI framework,
+•	It allows us to test using the NgModule configuration we use in our application.
+•	It allows us to test user interaction via clicks & input fields
+
+We still write our tests in Jasmine and run using Karma but we now have a slightly easier way to create components, handle injection, test asynchronous behaviour and interact with our application.
+
+import {TestBed, ComponentFixture} from '@angular/core/testing';
+import {LoginComponent} from './auth.component';
+import {AuthService} from "./auth.service";
+
+describe('Component: Login', () => {
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LoginComponent],
+      providers: [AuthService]
+    });
+  });
+});
+
+
+In the beforeEach function for our test suite we configure a testing module using the TestBed class.
+
+This creates a test Angular Module which we can use to instantiate components, perform dependency injection and so on.
+
+We configure it in exactly the same way as we would configure a normal NgModule. we pass in the LoginComponent in the declarations and the AuthService in the providers.
+
+Once the ATB is setup we can then use it to instantiate components and resolve dependencies
+
+import {TestBed, ComponentFixture} from '@angular/core/testing';
+import {LoginComponent} from './auth.component';
+import {AuthService} from "./auth.service";
+
+describe('Component: Login', () => {
+
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>; 
+  let authService: AuthService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LoginComponent],
+      providers: [AuthService]
+    });
+
+    // create component and test fixture
+    fixture = TestBed.createComponent(LoginComponent); 
+
+    // get test component from the fixture
+    component = fixture.componentInstance; 
+
+    // UserService provided to the TestBed
+    authService = TestBed.get(AuthService); 
+
+  });
+});
+
+	A fixture is a wrapper for a component and it’s template.
+	
+	We create an instance of a component fixture through the TestBed, this injects the AuthService into the component constructor.
+
+	We can find the actual component from the componentInstance on the fixture.
+	
+	We can get resolve dependencies using the TestBed injector by using the get function.
+
+Now we’ve configured the TestBed and extracted the component and service we can run through the same test specs as before:
+
+it('canLogin returns false when the user is not authenticated', () => {
+  spyOn(authService, 'isAuthenticated').and.returnValue(false);
+  expect(component.needsLogin()).toBeTruthy();
+  expect(authService.isAuthenticated).toHaveBeenCalled();
+});
+
+it('canLogin returns false when the user is not authenticated', () => {
+  spyOn(authService, 'isAuthenticated').and.returnValue(true);
+  expect(component.needsLogin()).toBeFalsy();
+  expect(authService.isAuthenticated).toHaveBeenCalled();
+});

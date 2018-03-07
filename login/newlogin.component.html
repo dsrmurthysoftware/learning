@@ -1,0 +1,37 @@
+<form class="container form-control" 
+   [formGroup]="form"
+  (ngSubmit)="onSubmit(form.value)">
+
+User Name:   <input type="text" name="username"  
+formControlName="username" 
+(ngModelChange)="usernameChanged(old,newValue=$event)">
+
+<br>
+Password : &nbsp;<input type="password"  name="password" formControlName="password">
+<br/>
+Country: <select name="country"  placeholder="Select" formControlName="country">
+  <option value="India">India</option>
+  <option value="USA">USA</option>
+  <option value="Japan">Japan</option>
+</select>
+<br><br>
+<input type="submit" value="Login" [disabled]="!form.valid" class="btn btn-success">
+<input type="reset" value="Reset" class="btn btn-danger">
+<div [hidden]="form.valid" class="text-danger">
+Please check credentials (Min. 3 chars for user name & 2 chars for password)
+</div>
+
+</form>
+<div class="well">
+  <span *ngIf="status; then show else error"></span>
+  <ng-template #show >
+    <h4 class="text-success">{{message}}</h4>
+  </ng-template>
+
+  <ng-template #error >
+    <h4 class="text-danger">{{message}}</h4>
+  </ng-template>
+</div>
+
+
+

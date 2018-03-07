@@ -1,0 +1,33 @@
+Pipes in Angular:
+----------------
+
+1.	CurrencyPipe
+2.	DatePipe
+3.	DecimalPipe
+4.	JsonPipe
+5.	LowerCasePipe
+6.	UpperCasePipe
+7.	PercentPipe
+8.	SlicePipe
+9.	AsyncPipe
+
+Currency:    {{ 1234.56 | currency:'USD' }}
+
+Date : {{ dateVal | date: 'd/M/y' }}
+
+Number : {{ 3.14159265 | number: '3.1-2' }}
+
+Json :     {{ jsonVal | json }}
+
+lowercase : {{ 'MURTHY' | lowercase }}
+
+uppercase : {{ 'sri' | uppercase }}
+
+percent :   {{ 0.123456 | percent: '2.1-2' }}
+
+slice : {{ [1,2,3,4,5,6] | slice:2 }}
+
+async
+<li *ngFor="let item of items | async">
+     {{item.name}}
+</li>
