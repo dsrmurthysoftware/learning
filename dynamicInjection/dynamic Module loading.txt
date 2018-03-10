@@ -1,0 +1,22 @@
+Dynamic module loading:
+-----------------------
+
+export class MyAppComponent {
+  constructor(){
+    System.import('path/to/your/module').then(refToLoadedModule => {
+      refToLoadedModule.someFunction();
+    }
+  );
+}
+
+for webpack:
+-----------
+export class MyAppComponent {
+  constructor() {
+     require.ensure(['path/to/your/module'], require => {
+        let yourModule = require('path/to/your/module');
+        yourModule.someFunction();
+     }); 
+  }
+}
+
