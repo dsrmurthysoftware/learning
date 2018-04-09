@@ -1,0 +1,13 @@
+•	componentWillMount is executed before rendering, on both server and client side.
+
+•	componentDidMount is executed after first render only on the client side. This is where AJAX requests and DOM or state updates should occur. This method is also used for integration with other JavaScript frameworks and any functions with delayed execution like setTimeout or setInterval.
+
+•	componentWillReceiveProps is invoked as soon as the props are updated before another render is called.
+
+•	shouldComponentUpdate should return true or false value. This will determine if component will be updated or not. This is set to true by default. If you are sure that component doesn't need to render after state or props are updated,  return false value.
+
+•	componentWillUpdate is called just before rendering.
+
+•	componentDidUpdate is called just after rendering.
+
+•	componentWillUnmount is called after the component is unmounted from the dom. We are unmounting our component in main.js.

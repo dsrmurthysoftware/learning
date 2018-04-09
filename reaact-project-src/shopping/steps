@@ -1,0 +1,14 @@
+- Create new project
+- npm init -y
+- install babel modules, webpack and react modules
+- wrtite code for Index.html
+- refer Bootstrap in index.html for Responsive design
+- create main.js  (Entry point with default state) in client folder.
+- Create components folder and start creating React components
+- App.js contain main layout of Shopping app. Refer Login, Products and CartInfo.
+- Write Login.js code 
+- Write Product.js to  show all the products.
+- Write ShoppingCart.js for updating shopping cart.
+- Write SearchBar.js for searching products
+- Write TextInput.js  for accepting search text
+- Write TextDisplay.js 

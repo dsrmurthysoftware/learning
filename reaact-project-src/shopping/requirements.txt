@@ -1,0 +1,6 @@
+App
+	login
+	searchbar
+	products
+		productInfo
+	cartinfo
