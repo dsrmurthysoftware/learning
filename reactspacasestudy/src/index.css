@@ -1,0 +1,47 @@
+body {
+  margin: 10;
+  padding: 10;
+  font-family: sans-serif;
+  background:lightgray;
+}
+h1{
+   background:darkgray;
+   color:black;
+   border:1px solid white;
+   border-radius: 10px;
+   text-align:center
+}
+.nav {
+  background:blue;
+  color:yellow;
+  margin:10px;
+}
+.nav:hover{
+  background:orange;
+}
+div{
+  margin:10px;
+}
+.footer{
+  background:darkblue;
+  color:yellow;
+  border:1px solid white;
+  text-align:center;
+  border-radius:10px
+}
+.container{
+  display:block;    
+  background:lightblue;
+  border:1px solid white;
+  border-radius:2px;
+  margin:10px;
+}
+table{
+  background:yellow;
+  border:1px solid black;
+}
+h3{
+  background:yellow;
+  color:black;
+  text-align:center
+}
