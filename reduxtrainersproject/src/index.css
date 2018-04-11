@@ -1,0 +1,38 @@
+
+body {
+  background:yellow;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-align:center
+}
+h1{
+  background:black;
+  color:pink;
+  border:1px solid;
+  border-radius: 30px;
+}
+h2{
+  background:darkblue;
+  color:white;
+  border:1px solid white;
+  border-radius:10px
+}
+.footer{
+  background:darkgrey;
+}
+h4{
+  background:lawngreen;
+  color:darkblue;
+  font-size:20px;
+  border:1px solid;
+  border-radius: 30px;
+  text-align:center;
+
+}
+img {
+  border:2px solid;
+ border-radius: 20px;
+  width: 180px;
+  height:180px;
+  text-align:center
+}
