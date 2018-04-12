@@ -1,0 +1,18 @@
+body{
+    background:yellow;
+   
+}
+.box{
+    background:lightgreen;    
+    padding:10px;
+    border-radius: 20px;
+    text-align:center;
+}
+.main{
+    background:lightblue;
+    color:white;
+    border:1px solid yellow;
+    border-radius:20px;
+    padding:10px
+   
+}
