@@ -1,0 +1,136 @@
+create foloder: react-webpack-project
+
+npm i webpack webpack-cli webpack-dev-server --save-dev
+
+Create a src folder with index.js and place the following
+ code as an example:
+
+console.log("Hello");
+
+open package.json and add below code in scripts section:
+"scripts":{
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+}
+
+Below command runs webpack for development mode:
+
+$npm run start      
+
+Observe dist folder with main.js in it.  (Open it and see the code)
+
+To run  : $ cd dist      $node main.js
+
+To build in production mode, below command is used: webpack --mode production
+$ npm run build 
+
+Open main.js and observe the code.
+------------------------------------------------------------------
+Setting Up React and Babel
+------------------------------
+To work with React, we need to install it along with Babel. 
+This will transpile the code from ES6 to ES5, as not all
+ browsers support ES6 yet.
+ 
+ -D for --save-dev     -S for --save   i for install
+
+$npm install  react react-dom -S
+
+$npm install babel-core 
+         babel-loader 
+         babel-preset-env 
+         babel-preset-react -D
+
+babel-core: Transforms your ES6 code into ES5
+
+babel-loader: Webpack helper to transform your JavaScript 
+                   dependencies (for example, when you import your components into other components) with Babel
+
+babel-preset-env: Determines which transformations/plugins to 
+                          use and polyfills (provide modern functionality
+                            on older browsers that do not natively support it) based on the browser matrix you want to support
+
+babel-preset-react: Babel preset for all React plugins, 
+                     for example turning JSX into functions
+
+
+
+add .babelrc  and add code.
+add react code in index.js
+add index.html and add code.
+
+Install html-webpack-plugin as a dev dependency:
+
+$ npm i html-webpack-plugin -D
+
+Create webpack.config.js and add code:
+--------------------------------------------
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+const htmlPlugin = new HtmlWebPackPlugin({
+  template: "./src/index.html",
+  filename: "./index.html"
+});
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  },
+  plugins: [htmlPlugin]
+};
+-------------------------------------------
+$ npm run start
+observe index.html in dist folder.
+
+Run open dist/index.html  and see in your browser.
+
+add below code in package.json:
+"start": "webpack-dev-server --mode development --open"
+
+$npm run start 
+you should see localhost:8080 
+
+Setting up CSS:
+
+$npm i css-loader style-loader -D
+
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+const htmlWebpackPlugin = new HtmlWebPackPlugin({
+  template: "./src/index.html",
+  filename: "./index.html"
+});
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
+  plugins: [htmlWebpackPlugin]
+};
+
+add style.css in src folder and add style.
+
+open index.js and add import './style.css'
+
+$ npm run start
+========================================
